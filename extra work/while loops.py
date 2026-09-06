@@ -19,6 +19,3 @@
 #    command = input("Enter command: ")
 #print("Execution stopped.")
 
-number = int(input("enter a number"))
-if number == /3 
-print("num is divisible by 3")
