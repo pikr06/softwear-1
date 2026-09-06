@@ -26,24 +26,37 @@
 #            number = number + 1
 
 
-cent = int(input("enter a number"))
-while cent >= 0:
-      print(cent) 
-      print("enter your number")
-      cent = int(input("enter"))
-      if cent < 0:
-            break
+#cent = int(input("enter a number"))
+#while cent >= 0:
+#      print(cent) 
+#      print("enter your number")
+#      cent = int(input("enter"))
+#      if cent < 0:
+#            break
 
 #
 
+#num = int(input("enter"))
+#while num <= 1000:
+#    
+#    num = int(input("go"))
+#    if num % 3 == 0:
+#        print (num)
+#        num = num + 1
+#else:
+#    print("nope")
 
 
 
 
 
 
-
-
+password = ""
+while password != "key":
+  
+    password = input("enter you password")
+else:
+    print("good job you are correct")
 
 
 
