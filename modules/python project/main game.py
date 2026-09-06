@@ -11,7 +11,7 @@ if age < 12:
 else:
     print("Welcome to the game!")
     
-    # Main loop
+    
     command = ""
     while command != "lopeta":
         print("----- MAIN MENU -----")
