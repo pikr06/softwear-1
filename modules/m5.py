@@ -75,13 +75,15 @@
 #    print("oops invalid number!")
 
 
-
-while True:
-    password = input("enter a password: ")
-    while password != 'word':
+password = 0 
+password = input("enter a password: ")
+while password != 'word':
         print("wrong password")
         password = input("enter a password: ")
-    else:
+if password >= 5:
+        print (" too many attempts")
+    break 
+else:
         print("entry gained")
 
 
