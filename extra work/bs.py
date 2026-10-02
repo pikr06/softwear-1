@@ -1,10 +1,65 @@
-number = 1
-while number <= 1000: 
-    if number % 3 == 0:          
-        print (f"you number is {number}")
-    number = number + 1
+#def squared ():
+#    squared = 2
+#    print(f"your square is {squared*squared}")
+#squared()
 
 
+
+#def squared (num):
+#   print(f"you square is{num*num}")
+#squared(5)
+
+
+
+#def smallest(a,b):
+#    if a < b:
+#        print(a) 
+#    else:
+#       print(b)
+
+
+#smallest(3, 7)
+#smallest(5, 2)
+
+#def sum():
+#    sum1 = int(input("enter 1"))
+#    sum2 = int(input("enter 2"))
+#    print("you sum is ", sum1 + sum2)
+
+#sum()
+
+#def greetings (name):
+#  print(f"hello {name}")
+#n = input("enter the name")
+#greetings(n)
+  
+
+#def greetings (name):
+#  print("hello",name)
+
+#name = input("")
+#greetings(name)
+
+
+#def name():
+#  name = input("enter")
+#  print("Hello!",name)
+
+#name()
+
+#def greeting(name):
+#  return
+
+#def name():
+#  name
+
+def greet(greeting, times):
+    for i in range(times):
+        print(greeting + " round: " + str(i+1))
+    return
+greet("Hello how are you!",3)
+greet("good day", 2)
+        
 #age = int(input("Enter your age: "))
 
 #if age < 12:
