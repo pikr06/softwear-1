@@ -42,8 +42,8 @@ print(f"The sum of the list is {result}")
 def remove_odd(numbers):
     even=[]
     for number in numbers:
-        if number% 2 == 0
-        even.append(number)
+        if number% 2 == 0:
+            even.append(number)
     return even
 first = [1,2,3,4,5,6,7,8,9,10]
 final = remove_odd(first)
