@@ -40,6 +40,7 @@ else:
     print(n, "is not a prime number.")
 
 
+
     cities = []
 
 for i in range(5):
