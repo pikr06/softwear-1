@@ -1,8 +1,13 @@
-import random
+first, second, third, fourth = ["spring", "summer" , "autumn", "winter"]
+month = int(input("enter a number" ))
+while month >= 1 or month <= 12: 
+    month = int(input("enter a number" ))
+    if 1 <= month <= 3:
+        print ("your szn is winter")
+    elif 4 <= month <= 6:
+        print ("your szn is spring")
+    elif 7<= month <= 9:
+        print("your szn is summer")
+    elif 10<= month <= 12:
+        print ("your szn is autumn")
 
-def cast():
-    first, second = random.randint(1,6), random.randint(1,6)
-    return first, second
-
-die1, die2 = cast()
-print(f"The dice show {die1} and {die2}.")
