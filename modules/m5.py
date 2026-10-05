@@ -1,94 +1,50 @@
-#password = input("enter a password")
-#while password != 'word':
-#    print("wrong passowrd")
-#    password= input("enter a password")
+n = 1 
+while n <= 1000:
+    if n % 3 == 0:
+        print(n)
+    n += 1
 
+while True:
+    inch = float(input("Enter inches"))
+    if inch < 0:
+        break
+    print(f"{inch} = {inch*2.54}cm")
 
-#else:
-#    print("entry gained")
-   
+numbers = []
 
-    
-  
+while True:
+    number = input("enter a num")
+    if number == "":
+        break
+    numbers.append(float(number))
 
-
-#number = 0
-#while number <= 1000:
-#    if number % 3 == 0:
-#        print(number)
-#    number = number + 1
-
-
-
-
-
-#number = 0
-#while number <= 1000:
-#     number = int(input("what is the number "))
-#     if number % 3 == 0:
-#            print(number)
-#            number = number + 1
-
-
-#cent = int(input("enter a number"))
-#while cent >= 0:
-#      print(cent) 
-#      print("enter your number")
-#      cent = int(input("enter"))
-#      if cent < 0:
-#            break
-
-#
-
-
-
-
-
-
-
-
-#password = ""
-#while password != "key":
-  
-#    password = input("enter you password")
-#else:
-#    print("good job you are correct")
-
-#num= int(input("enter num"))
-##while num >= 1 and num <= 1000:
-#    if num % 3 == 0:
-#        print(num)
-#    num = num + 1
-    
-#else:
-#    print("invalind num")
-   
-#inch = int(input("number"))
-#while inch >= 0:
-#    print("print the inchi")
-#    centi = inch * 0.39
-#    print(centi)
-#    print ("the conversion has been done")
-#    print("enter the next input")
-#    inch = int(input())
-#else:
-#    print("oops invalid number!")
-
-
-password = 0 
-password = input("enter a password: ")
-while password != 'word':
-        print("wrong password")
-        password = input("enter a password: ")
-if password >= 5:
-        print (" too many attempts")
-    break 
+if numbers:
+    print(f"smallest = {min(numbers)}")
+    print(f"largest = {max(numbers)}")
 else:
-        print("entry gained")
+    print("No numbers entered.")
 
+import random
 
+number = random.randint(1,10)
+while True:
+    guess = int(input("guess a number between 1 and 10 "))
+    if number > guess:
+        print("nope too high")
+    elif number < guess:
+        print("nope too low")
+    else:
+        print("corret")
 
+attempts = 0
 
+while attempts < 5:
+    username = input("Username: ")
+    password = input("Password: ")
+    if username == "python" and password == "rules":
+        print("Welcome")
+        break
+    attempts += 1
 
-
-
+if attempts == 5:
+    print("Access denied")
