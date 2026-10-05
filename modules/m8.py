@@ -10,4 +10,8 @@ while month >= 1 or month <= 12:
         print("your szn is summer")
     elif 10<= month <= 12:
         print ("your szn is autumn")
+    else:
+        break
+
+
 
