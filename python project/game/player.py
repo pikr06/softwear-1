@@ -3,6 +3,7 @@ class Player:
         self.name = name
         self.age = age
         self.location = location
+        self.world_rooms = None
         self.items = []
         
         self.score = 0 
