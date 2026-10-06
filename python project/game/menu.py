@@ -7,22 +7,20 @@ def menu():
     print("move")
     print("collect- collect the item")
     print("add - add your item")
+    print("drop - drop your item")
     print("inventory - show your items")
     print("score")
-    print("help")
+    print("save")
     print("lopeta")
 
 def look(player):
     room = player.location
     print("\n you are in", room.name)
     print(room.description)
-    if room.item == None:
+    if room.item is None:
         print("there is no item to collect here")
     else:
         print("wow there is", room.item.name, "it weighs around", str(room.item.weight),"kg")
-
-def show_score(player):
-    print("you score at the moment is", player.score)
 
 def move_player(player, rooms):
     print("where to?")
@@ -32,7 +30,8 @@ def move_player(player, rooms):
         print(str(number) + ")", room.name)
         options.append(str(number))
         number = number + 1
-        choice = input("number: ")
+
+    choice = input("number: ")
     if choice in options:
         player.move(rooms[int(choice) - 1])
     else:
@@ -42,6 +41,17 @@ def add_item(player):
     name = input("what item do you want to add")
     player.item.append(Item(name,0.5))
     print(name, "has been added")
+
+
+def drop_item(player):
+    player.drop_item()
+
+
+
+def show_score(player):
+    print("you score at the moment is", player.score)
+
+
 
 def show_inventory(player):
     if len(player.items) == 0:

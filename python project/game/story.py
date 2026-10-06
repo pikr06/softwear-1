@@ -1,3 +1,5 @@
+from game import menu
+
 def point_system (player, points, message):
     player.score = player.score + points
     if points > 0:
@@ -5,12 +7,29 @@ def point_system (player, points, message):
     else:
         print("unlucky negative tick", message, str(points),"points")
 
+def ask_pickup(player):
+    room = player.location
+    if room.item is not None:
+        print("\nYou see a", room.item.name)
+        choice = input("Pick it up? (yes/no): ")
+        if choice == "yes":
+            player.collect_item()
+        else:
+            print("You leave the item where it is.")
+
 def play(player):
     player.score = 0 
     in_class = True
+    
     print("\n new day begins,")
     print("\n--6.30am--")
     print("the alarm has rung. first class starts at 8:00 am")
+    print("Pick where you want to start your day.")
+
+    menu.move_player(player, player.world_rooms)
+    menu.look(player)
+    ask_pickup(player)
+
     print("1) should i get up?")
     print("2) hmm lets sleep for a bit")
     print("3) lets miss the first class, I'll catch up later")
@@ -25,6 +44,17 @@ def play(player):
     else:
         print("that wasnt an option")
         in_class = False
+
+    if in_class:
+        print("\nGo to the Lecture hall.")
+        menu.move_player(player, player.world_rooms)
+        menu.look(player)
+        ask_pickup(player)
+    if player.location.name != "Lecture hall":
+            print("You are not in the Lecture hall. You miss class.")
+            point_system(player, -3, "You skipped class")
+            in_class = False
+
 
     if in_class == True:
         print("\n--- First Class ---")
@@ -54,8 +84,49 @@ def play(player):
             point_system(player, -2, "starting to fall behind in class")
         else:
             print("invalid choice")
+        
     print("\n -- 11:00pm -- (Lunch time)")
-    print("1) eat with tony and friends")
-    print("2) eat quick in the cafe and go study")
-    print("3) eat out and go play games")
-    choice = input("what should I chose")
+    menu.move_player(player, player.world_rooms)
+    menu.look(player)
+    ask_pickup(player)
+
+    if player.location.name != "Cafeteria":
+        print("You skipped lunch.")
+        point_system(player, -1, "Skipped lunch")
+    else:
+        print("1) eat with tony and friends")
+        print("2) eat quick in the cafe and go study")
+        print("3) eat out and go play games")
+        choice = input("what should I chose")
+        if choice == "1":
+            point_system(player, 1, "You spent time with friends")
+        elif choice == "2":
+            point_system(player, 2, "You studied")
+            if player.has_item("Textbook"):
+                point_system(player, 1, "Textbook helped")
+        elif choice == "3":
+            point_system(player, -1, "You wasted time")
+        else:
+            print("invalid choice")
+
+        print("--Evening time--")
+        print("Where to go")
+        menu.move_player(player, player.world_rooms)
+        menu.look(player)
+        ask_pickup(player)
+        if player.location.name == "gym":
+            point_system(player, 2, "well done you worked out")
+            if player.has_item("gym bag"):
+
+                point_system(player, 1, "your have been prepped")
+        elif player.location.name == "Library":
+            point_system(player, 3, "You studied hard")
+            if player.has_item("Laptop"):
+                point_system(player, 1, "Laptop helped")
+
+        elif player.location.name == "Campus yard":
+            point_system(player, -2, "You partied")
+
+        print("\n===== END OF THE DAY =====")
+        print("Your final score is", player.score)
+

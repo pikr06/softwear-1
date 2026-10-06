@@ -1,3 +1,5 @@
+from game.item import Item
+
 class Player:
     def __init__ (self, name, age, location):
         self.name = name
@@ -5,28 +7,57 @@ class Player:
         self.location = location
         self.world_rooms = None
         self.items = []
-        
         self.score = 0 
         self.max_weight = 10
+
     def total_weight(self):
         total = 0 
         for item in self.items:
             total = total + item.weight
         return total 
+    
     def has_item(self, item_name):
         for item in self.items:
-            return True
+            if item.name == item_name:
+                return True
         return False
-    def move(self, destination):
-        self.location = destination
+    
+    def move(self, room):
+        self.location = room
         print("right now you are in", self.location.name)
+
     def collect_item(self):
         room = self.location
-        if room.item == None:
+        if room.item is None:
             print("There is nothing to pick up here")
-        elif self.total_weight() + room.item.weight > self.max_weight:
-            print("this is too heavy to carry in your bag")
         else:
-            self.items.append(room.item)
-            print("you have picked up", room.item.name)
-            room.item = None
+            item = room.item
+            if self.total_weight() + item.weight > self.max_weight:
+                 print("The", item.name, "is too heavy. You can't carry any more.")
+            else:
+                self.items.append(item)
+                print("You picked up:", item.name)
+                room.item = None
+
+    def drop_item(self):
+        if len(self.items) == 0:
+            print("You have no items to drop.")
+            return
+        print("\nWhich item do you want to drop?")
+        options = []
+        number = 1
+        for item in self.items:
+            print(str(number) + ")", item.name, "(", item.weight, "kg )")
+            options.append(str(number))
+            number += 1
+
+        choice = input("number:")
+        if choice in options:
+            dropped = self.item.pop(int(choice)-1)
+            print("you dropped", dropped.name)
+            if self.location.item is None:
+                self.location.item = dropped
+            else:
+                print("the room aleady has an item:")
+        else:
+            print("this item dose not exist")
