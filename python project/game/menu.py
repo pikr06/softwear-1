@@ -39,19 +39,14 @@ def move_player(player, rooms):
 
 def add_item(player):
     name = input("what item do you want to add")
-    player.item.append(Item(name,0.5))
+    player.items.append(Item(name,0.5))
     print(name, "has been added")
-
 
 def drop_item(player):
     player.drop_item()
 
-
-
 def show_score(player):
     print("you score at the moment is", player.score)
-
-
 
 def show_inventory(player):
     if len(player.items) == 0:

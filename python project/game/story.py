@@ -30,14 +30,9 @@ def play(player):
     print("2) hmm lets sleep for a bit")
     print("3) lets miss the first class, I'll catch up later")
     choice = input("which one to pick?") 
-    #print("1) should i get up?")
-    #print("2) hmm lets sleep for a bit")
-    #print("3) lets miss the first class, I'll catch up later")
-    #choice = input("which one to pick?")
     menu.move_player(player, player.world_rooms)
     menu.look(player)
     ask_pickup(player)
-    
     if choice == "1":
         point_system(player,2,"you woke up early")
     elif choice == "2":
@@ -48,7 +43,6 @@ def play(player):
     else:
         print("that wasnt an option")
         in_class = False
-
     if in_class:
         print("\nGo to the Lecture hall.")
         menu.move_player(player, player.world_rooms)
@@ -58,8 +52,6 @@ def play(player):
             print("You are not in the Lecture hall. You miss class.")
             point_system(player, -3, "You skipped class")
             in_class = False
-
-
     if in_class == True:
         print("\nFirst Class")
         print("the teacher takes attendence")
@@ -93,7 +85,6 @@ def play(player):
     menu.move_player(player, player.world_rooms)
     menu.look(player)
     ask_pickup(player)
-
     if player.location.name != "Cafeteria":
         print("You skipped lunch.")
         point_system(player, -1, "Skipped lunch")
@@ -126,7 +117,6 @@ def play(player):
         point_system(player, 3, "You studied hard")
         if player.has_item("Laptop"):
             point_system(player, 1, "Laptop helped")
-
     elif player.location.name == "Campus yard":
         point_system(player, -2, "You partied")
 
@@ -136,5 +126,3 @@ def play(player):
     else:
         print("Your final score is", player.score,"you havent done too good try again")
     print("press start to play again")
-
-

@@ -9,20 +9,14 @@ from game import story
 
 name = input("Enter your name: ")
 rooms = create_rooms()
-player = None
-
-
-if player is None:
-    age = int(input("Enter your age: "))
-    print("Name:", name)
-    print("Age:", age)
-
-    if age < 12:
+age = int(input("Enter your age: "))
+print("Name:", name)
+print("Age:", age)
+if age < 12:
         print("You are too young to play. Shutting down.")
         exit()
-
-    print("Welcome,", name + "!")
-    player = Player(name, age, rooms[0])
+print("Welcome,", name + "!")
+player = Player(name, age, rooms[0])
 
 player.world_rooms = rooms
 

@@ -9,7 +9,7 @@ class Player:
         self.world_rooms = None
         self.items = []
         self.score = 0 
-        self.max_weight = 10
+        self.max_weight = 5
 
     def total_weight(self):
         total = 0 
@@ -51,10 +51,9 @@ class Player:
             print(str(number) + ")", item.name, "(", item.weight, "kg )")
             options.append(str(number))
             number += 1
-
-        choice = input("number:")
+            choice = input("number:")
         if choice in options:
-            dropped = self.item.pop(int(choice)-1)
+            dropped = self.items.pop(int(choice)-1)
             print("you dropped", dropped.name)
             if self.location.item is None:
                 self.location.item = dropped
