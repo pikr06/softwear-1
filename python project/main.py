@@ -33,6 +33,7 @@ while command != "lopeta":
 
     if command == "start":
         story.play(player)
+        break
     elif command == "look":
         menu.look(player)
     elif command == "move":
@@ -50,6 +51,5 @@ while command != "lopeta":
     
     elif command == "lopeta":
         break
-      
     else:
         print("Invalid command.")

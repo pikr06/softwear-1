@@ -1,5 +1,6 @@
 from game.item import Item
 
+
 class Player:
     def __init__ (self, name, age, location):
         self.name = name
