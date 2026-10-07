@@ -133,5 +133,10 @@ def play(player):
         point_system(player, -2, "You partied")
 
     print("\n===== END OF THE DAY =====")
-    print("Your final score is", player.score)
+    if player.score >= 5:
+        print("Your final score is", player.score,"well done you have done well")
+    else:
+        print("Your final score is", player.score,"you havent done too good try again")
+    print("press start to play again")
+
 
