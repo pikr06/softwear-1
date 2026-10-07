@@ -25,9 +25,7 @@ def play(player):
     print("\n--6.30am--")
     print("the alarm has rung. first class starts at 8:00 am")
     print("Pick where you want to start your day.")
-
-    
-    
+ 
     print("1) should i get up?")
     print("2) hmm lets sleep for a bit")
     print("3) lets miss the first class, I'll catch up later")
@@ -91,7 +89,7 @@ def play(player):
         else:
             print("invalid choice")
         
-    print("\n  11:00pm, (Lunch time)")
+    print("\n  11:00pm : (Lunch time)")
     menu.move_player(player, player.world_rooms)
     menu.look(player)
     ask_pickup(player)
@@ -115,15 +113,15 @@ def play(player):
         else:
             print("invalid choice")
 
-    print("--Evening time--")
-    print("Where to go")
+    print("\n Evening time")
+    print("wow I finally have free time, what should do?")
     menu.move_player(player, player.world_rooms)
     menu.look(player)
     ask_pickup(player)
-    if player.location.name == "gym":
+    if player.location.name == "Gym":
             point_system(player, 2, "well done you worked out")
             if player.has_item("gym bag"):
-                point_system(player, 1, "your have been prepped")
+                point_system(player, 1, "you have been staying healthy")
     elif player.location.name == "Library":
         point_system(player, 3, "You studied hard")
         if player.has_item("Laptop"):
