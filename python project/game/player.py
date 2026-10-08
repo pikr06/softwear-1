@@ -25,7 +25,7 @@ class Player:
     
     def move(self, room):
         self.location = room
-        print("right now you are in", self.location.name)
+        print(self.location.name)
 
     def collect_item(self):
         room = self.location

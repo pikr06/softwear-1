@@ -61,8 +61,8 @@ def play(player):
         choice = input("what should I do?")
         if choice == "1":
             point_system(player, 2, "your up to date with the lesson")
-            if player.has_item("Textbook"):
-                point_system(player, 2,"the Textbook has helped with taking notes")
+            if player.has_item("textbook"):
+                point_system(player, 2,"the textbook has helped with taking notes")
         elif choice == "2":
             point_system(player, -1, "you wasted your time in class now you need to catch up")
         elif choice =="3":
@@ -81,7 +81,7 @@ def play(player):
         else:
             print("invalid choice")
         
-    print("\n  11:00pm : (Lunch time)")
+    print("\n  11:00am : (Lunch time)")
     menu.move_player(player, player.world_rooms)
     menu.look(player)
     ask_pickup(player)
@@ -97,8 +97,8 @@ def play(player):
             point_system(player, 1, "You spent time with friends")
         elif choice == "2":
             point_system(player, 2, "You studied")
-            if player.has_item("Textbook"):
-                point_system(player, 1, "Textbook helped")
+            if player.has_item("textbook"):
+                point_system(player, 1, "textbook helped")
         elif choice == "3":
             point_system(player, -1, "You wasted time")
         else:
@@ -113,9 +113,9 @@ def play(player):
         point_system(player, 2, "well done you worked out")
         if player.has_item("gym_bag"):
                 point_system(player, 1, "you have been staying healthy")
-    elif player.location.name == "Library":
+    elif player.location.name == "library":
         point_system(player, 3, "You studied hard")
-        if player.has_item("Laptop"):
+        if player.has_item("laptop"):
             point_system(player, 1, "Laptop helped")
     elif player.location.name == "Campus ":
         point_system(player, -2, "You partied")

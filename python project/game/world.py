@@ -4,7 +4,7 @@ from game.room import Room
 def create_rooms():
 
 
-    dorm = Room("Dorm room", "Your own personal room.", Item("Pencil", 1, 1))
+    dorm = Room("Dorm room", "Your own personal room.", Item("pencil", 1, 1))
     campus = Room("Campus ", "The busy middle of campus.", None)
     lecture = Room("Lecture hall", "Rows of seats and a big whiteboard.", Item("textbook", 3, 2))
     cafeteria = Room("Cafeteria", "It smells tasty! .", Item("sandwich",2, 1))
