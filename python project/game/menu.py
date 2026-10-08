@@ -35,7 +35,6 @@ def move_player(player, rooms):
     else:
         print("this does not exist")
 
-
 def drop_item(player):
     player.drop_item()
 
@@ -50,3 +49,4 @@ def show_inventory(player):
         for item in player.items:
             print(item.name,str(item.weight),"kg")
         print("weight:", player.total_weight(), player.max_weight)
+

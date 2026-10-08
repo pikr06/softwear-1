@@ -42,8 +42,8 @@ class Player:
                     if self.total_weight() + item.weight <= self.max_weight:
                        self.items.append(item)
                        self.score += item.points
-                       print("you have picked up", item.name)
-                       print("tick you picked up", item.points)
+                       print("you have picked up:" , item.name)
+                       print("tick you picked up" , item.points)
                        room.item = None
                     else:
                         print("you still dont have enough space")
@@ -52,7 +52,7 @@ class Player:
             else:
                 self.items.append(item)
                 self.score += item.points
-                print("you have picked up", item.name)
+                print("you have picked up:", item.name)
                 print("tick you picked up", item.points, "points")
                 room.item = None
 
@@ -74,7 +74,7 @@ class Player:
 
             if choice in options:
                 dropped = self.items.pop(int(choice)-1)
-                print("you dropped", dropped.name)
+                print("you dropped" , dropped.name)
 
                 if in_room:
                     if self.location.item is None:
@@ -85,4 +85,4 @@ class Player:
                         
             else:
                 print("the room aleady has an item:")
-                return None 
+                #return None 

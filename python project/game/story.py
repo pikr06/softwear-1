@@ -28,7 +28,7 @@ def play(player):
     print("1) should i get up?")
     print("2) hmm lets sleep for a bit")
     print("3) lets miss the first class, I'll catch up later")
-    choice = input("which one to pick?") 
+    choice = input("which one to pick? ") 
     menu.move_player(player, player.world_rooms)
     menu.look(player)
     ask_pickup(player)
@@ -58,7 +58,7 @@ def play(player):
         print("1) Hmm should I listen and take notes?")
         print("2) should I just text and scroll on Tiktok")
         print("3) skip class")
-        choice = input("what should I do?")
+        choice = input("what should I do? ")
         if choice == "1":
             point_system(player, 2, "your up to date with the lesson")
             if player.has_item("textbook"):
@@ -73,7 +73,7 @@ def play(player):
         print("\n you have now missed ths first class")
         print("1) text tony for his notes")
         print("2) ignore and start procrastnaing")
-        choice = input("what should I do?")
+        choice = input("what should I do? ")
         if choice == "1":
             point_system(player, 1, "tony shared his notes")
         elif choice == "2":
@@ -92,7 +92,7 @@ def play(player):
         print("1) eat with tony and friends")
         print("2) eat quick in the cafe and go study")
         print("3) eat out and go play games")
-        choice = input("what should I chose")
+        choice = input("what should I chose? ")
         if choice == "1":
             point_system(player, 1, "You spent time with friends")
         elif choice == "2":
@@ -105,7 +105,7 @@ def play(player):
             print("invalid choice")
 
     print("\n Evening time")
-    print("wow I finally have free time, what should do?")
+    print("wow I finally have free time, what should do? ")
     menu.move_player(player, player.world_rooms)
     menu.look(player)
     ask_pickup(player)
