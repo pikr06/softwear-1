@@ -1,4 +1,4 @@
-import os
+
 
 from game.player import Player
 from game.world import create_rooms
@@ -15,7 +15,7 @@ print("Age:", age)
 if age < 12:
         print("You are too young to play. Shutting down.")
         exit()
-print("Welcome,", name + "!")
+print("Welcome,", name , "!")
 player = Player(name, age, rooms[0])
 
 player.world_rooms = rooms
@@ -36,13 +36,10 @@ while command != "lopeta":
         player.collect_item()
     elif command == "drop":
         menu.drop_item(player)
-    elif command == "add":
-        menu.add_item(player)
     elif command == "inventory":
         menu.show_inventory(player)
     elif command == "score":
         menu.show_score(player)
-    
     elif command == "lopeta":
         break
     else:

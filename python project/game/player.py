@@ -35,21 +35,25 @@ class Player:
             item = room.item
             if self.total_weight() + item.weight > self.max_weight:
                 print("The", item.name, "is too heavy. You can't carry any more.")
-                choice = input("do you wanna drop soemthing")
+                choice = input("do you wanna drop soemthing ?")
                 
                 if choice == "yes":
                     self.drop_item(False)
                     if self.total_weight() + item.weight <= self.max_weight:
                        self.items.append(item)
+                       self.score += item.points
                        print("you have picked up", item.name)
+                       print("tick you picked up", item.points)
                        room.item = None
                     else:
                         print("you still dont have enough space")
-            
+                else:
                         print("you have decided not to pick it up ")
             else:
                 self.items.append(item)
-                print("You picked up:", item.name)
+                self.score += item.points
+                print("you have picked up", item.name)
+                print("tick you picked up", item.points, "points")
                 room.item = None
 
     def drop_item(self, in_room = True):
@@ -62,25 +66,23 @@ class Player:
             number = 1
 
             for item in self.items:
-                        print(str(number) + ")", item.name, "(", item.weight, "kg )")
-                        options.append(str(number))
-                        number += 1
+                print(str(number) + ")", item.name, "(", item.weight, "kg )")
+                options.append(str(number))
+                number += 1
 
             choice = input("number:")
 
             if choice in options:
-                        dropped = self.items.pop(int(choice)-1)
-                        print("you dropped", dropped.name)
+                dropped = self.items.pop(int(choice)-1)
+                print("you dropped", dropped.name)
 
-                        if in_room:
-                            if self.location.item is None:
-                                  self.location.item = dropped
-                            else:
-                                 print("the room already has an item")
-                        return dropped
+                if in_room:
+                    if self.location.item is None:
+                        self.location.item = dropped
+                    else:
+                        print("the room already has an item")
+                    return dropped
                         
             else:
                 print("the room aleady has an item:")
-                return None
-                    
- 
+                return None 

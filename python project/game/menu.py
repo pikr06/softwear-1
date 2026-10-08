@@ -6,11 +6,9 @@ def menu():
     print("look")
     print("move")
     print("collect- collect the item")
-    print("add - add your item")
     print("drop - drop your item")
     print("inventory - show your items")
     print("score")
-    print("save")
     print("lopeta")
 
 def look(player):
@@ -37,10 +35,6 @@ def move_player(player, rooms):
     else:
         print("this does not exist")
 
-def add_item(player):
-    name = input("what item do you want to add")
-    player.items.append(Item(name,0.5))
-    print(name, "has been added")
 
 def drop_item(player):
     player.drop_item()

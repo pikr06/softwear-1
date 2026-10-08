@@ -22,10 +22,9 @@ def play(player):
     in_class = True
     
     print("\n new day begins,")
-    print("\n--6.30am--")
+    print("\n--7.30am--")
     print("the alarm has rung. first class starts at 8:00 am")
     print("Pick where you want to start your day.")
- 
     print("1) should i get up?")
     print("2) hmm lets sleep for a bit")
     print("3) lets miss the first class, I'll catch up later")
@@ -33,6 +32,7 @@ def play(player):
     menu.move_player(player, player.world_rooms)
     menu.look(player)
     ask_pickup(player)
+
     if choice == "1":
         point_system(player,2,"you woke up early")
     elif choice == "2":
@@ -41,7 +41,7 @@ def play(player):
         point_system(player, -3, "you slept through the first class")
         in_class = False
     else:
-        print("that wasnt an option")
+        print("invalid option")
         in_class = False
     if in_class:
         print("\nGo to the Lecture hall.")
@@ -61,8 +61,8 @@ def play(player):
         choice = input("what should I do?")
         if choice == "1":
             point_system(player, 2, "your up to date with the lesson")
-            if player.has_item("Notebook"):
-                point_system(player, 2,"the notebook has helped with taking notes")
+            if player.has_item("Textbook"):
+                point_system(player, 2,"the Textbook has helped with taking notes")
         elif choice == "2":
             point_system(player, -1, "you wasted your time in class now you need to catch up")
         elif choice =="3":
@@ -110,14 +110,14 @@ def play(player):
     menu.look(player)
     ask_pickup(player)
     if player.location.name == "Gym":
-            point_system(player, 2, "well done you worked out")
-            if player.has_item("gym bag"):
+        point_system(player, 2, "well done you worked out")
+        if player.has_item("gym_bag"):
                 point_system(player, 1, "you have been staying healthy")
     elif player.location.name == "Library":
         point_system(player, 3, "You studied hard")
         if player.has_item("Laptop"):
             point_system(player, 1, "Laptop helped")
-    elif player.location.name == "Campus yard":
+    elif player.location.name == "Campus ":
         point_system(player, -2, "You partied")
 
     print("\n===== END OF THE DAY =====")
